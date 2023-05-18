@@ -4,10 +4,12 @@ from tensorflow import expand_dims, newaxis
 import cv2
 from PIL import Image, ImageOps
 import numpy as np
+import os
+path = os.path.dirname(__file__)
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-  model=tf.keras.models.load_model('C:/Users/Anshi/Documents/Modeleye1.h5')
+  model=tf.keras.models.load_model(os.path.join(path,"Modeleye1.h5"))
   return model
 with st.spinner('Model is being loaded..'):
   model=load_model()
